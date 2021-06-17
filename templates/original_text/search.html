@@ -1,0 +1,16 @@
+{% extends "original_text/base.html" %}
+
+{% block body %}
+<div class="col-md-12 tab-wrap">
+    <p>SEARCH CONDITIONS --- TEXT: {{ results.q1 }} --- FROM: {{ results.q2 }} --- IN LANGUAGE: {{ results.q3 }}</p>
+    <p>SEARCH RESULTS TOTAL COUNT --- {{ results.total_results_sentence }}</p>
+    <ul>
+
+        {% for data in results.results_sentence %}
+            <li>{{ data.content }}</li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
+
+</div>
