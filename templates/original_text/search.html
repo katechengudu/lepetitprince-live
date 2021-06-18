@@ -8,6 +8,16 @@
 
         {% for data in results.results_sentence %}
             <li>{{ data.content }}</li>
+            <p><div class="btn-group">
+                          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Small button
+                          </button>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Grammar</a></li>
+                              <li><a class="dropdown-item active" href="#">English</a></li>
+                              <li><a class="dropdown-item" href="#">Chinese</a></li>
+                          </ul>
+                        </div></p>
         {% endfor %}
 
     </ol>
