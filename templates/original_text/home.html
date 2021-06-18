@@ -16,13 +16,13 @@
 
         <div id="collapse{{ chapter.title_number }}" class="collapse in" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
-              <ul>
+              <ol>
                 {% for data in results.datas %}
                     {% if data.chapter_title.title_name == chapter.title_name %}
                         <li>{{ data.content }}</li>
                     {% endif %}
                 {% endfor %}
-              </ul>
+              </ol>
           </div>
         </div>
       </div>
