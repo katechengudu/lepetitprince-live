@@ -6,12 +6,7 @@ from import_export.widgets import ForeignKeyWidget
 
 # Register your models here.
 
-class SourceAdmin(ImportExportModelAdmin):
-    list_display = ['title','pk','note']
-    list_display_links = ['title']
-    search_fields = ['title']
-    class Meta:
-        model = Source
+
 
 class RawdataAdmin(ImportExportModelAdmin):
     list_display = ['pk','content','note','priority','number','translation_eng']
@@ -22,5 +17,4 @@ class RawdataAdmin(ImportExportModelAdmin):
     class Meta:
         model = Rawdata
 
-admin.site.register(Source,SourceAdmin)
 admin.site.register(Rawdata,RawdataAdmin)

@@ -11,9 +11,9 @@ class SentenceView(ListView):
 
     def get_queryset(self):
         datas = Sentence.objects.all()
-        chapters=Chapter.objects.all()
+        chapter_titles=Chapter.objects.all()
         results = {'datas':datas,
-                   'chapters': chapters,
+                   'chapter_titles': chapter_titles,
                    'text_language':['french','english','chinese']
                    }
         return results
@@ -30,12 +30,7 @@ class SearchView(ListView):
         q2 = self.request.GET.get("chapter_name")
         q3 = self.request.GET.get("text_language")
 
-        chapter_title_objects = Sentence.objects.values_list('chapter_title', flat=True).distinct()
-        chapter_titles = []
-        for each in chapter_title_objects:
-            chapter_title_ref = Chapter.objects.get(id=each)
-            chapter_title = chapter_title_ref.title_name
-            chapter_titles.append(chapter_title)
+        chapter_titles = Chapter.objects.all()
 
         if q1 or q2 or q3:
             if q2 == 'all' and q3 == 'french':

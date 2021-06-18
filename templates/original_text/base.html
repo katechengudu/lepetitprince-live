@@ -31,8 +31,8 @@
                                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                                       <select name="chapter_name" id="" class="form-control">
                                                           <option value="all">ALL CHAPTERS</option>
-                                                          {% for chapter_title in results.chapter_titles %}
-                                                              <option value="{{ chapter_title }}" >{{ chapter_title }}</option>
+                                                          {% for chapter in results.chapter_titles %}
+                                                              <option value="{{ chapter.title_name }}" >{{ chapter.title_name }}</option>
                                                           {% endfor %}
                                                       </select>
                                                  </div>
