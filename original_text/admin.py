@@ -38,6 +38,11 @@ class SentenceResource(resources.ModelResource):
         column_name='chapter_title',
         attribute='chapter_title',
         widget=ForeignKeyWidget(Chapter, 'title_name'))
+
+    paragraph_title = fields.Field(
+        column_name='paragraph_title',
+        attribute='paragraph_title',
+        widget=ForeignKeyWidget(Paragraph, 'content'))
     class Meta:
         model = Sentence
 
