@@ -14,7 +14,7 @@ class SentenceView(ListView):
         chapter_titles=Chapter.objects.all()
         results = {'datas':datas,
                    'chapter_titles': chapter_titles,
-                   'text_language':['french','english','chinese']
+                   'text_language':['french','english']
                    }
         return results
 
@@ -39,7 +39,7 @@ class SearchView(ListView):
                 results = {'results_sentence': results_sentence,
                            'total_results_sentence':total_results_sentence,
                            'chapter_titles':chapter_titles,
-                           'text_language':['french','english','chinese'],
+                           'text_language':['french','english'],
                            'q1':q1,
                            'q2':q2,
                            'q3':q3,
@@ -51,7 +51,7 @@ class SearchView(ListView):
                 results = {'results_sentence': results_sentence,
                            'total_results_sentence':total_results_sentence,
                            'chapter_titles':chapter_titles,
-                           'text_language':['french','english','chinese'],
+                           'text_language':['french','english'],
                            'q1': q1,
                            'q2': q2,
                            'q3': q3,
@@ -63,7 +63,7 @@ class SearchView(ListView):
                 results = {'results_sentence': results_sentence,
                            'total_results_sentence':total_results_sentence,
                            'chapter_titles':chapter_titles,
-                           'text_language':['french','english','chinese'],
+                           'text_language':['french','english'],
                            'q1': q1,
                            'q2': q2,
                            'q3': q3,
@@ -75,7 +75,7 @@ class SearchView(ListView):
                 results = {'results_sentence': results_sentence,
                            'total_results_sentence':total_results_sentence,
                            'chapter_titles':chapter_titles,
-                           'text_language':['french','english','chinese'],
+                           'text_language':['french','english'],
                            'q1': q1,
                            'q2': q2,
                            'q3': q3,
