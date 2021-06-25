@@ -7,14 +7,14 @@
                 <tr>
                   <th scope="col">Book</th>
                   <th scope="col">Author</th>
-                    <th scope="col">Fee</th>
+                    <th scope="col">Notes</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                 <td><a href="{% url 'original_text:sentence' pk=book.pk %}">{{ book.title }}</a></td>
                 <td>{{ book.author }}</td>
-                <td><span class="badge bg-light text-dark">Free</span></td>
+                <td><span class="badge bg-light text-dark">1st</span></td>
                 </tr>
             </tbody>
         {% endfor %}

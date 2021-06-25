@@ -8,14 +8,13 @@ class BookView(ListView):
     template_name = 'original_text/home.html'
     context_object_name = 'results'
     model = Book
-    ordering = ['pk']
 
-    def get_context_data(self,*args,**kwargs):
-        context = super().get_context_data(*args,**kwargs)
-        context['all_books'] = Book.objects.all()
-        context['text_language'] = ['french','english']
-        return context
-
+    def get_queryset(self):
+        all_books=Book.objects.all()
+        results = {'all_books': all_books,
+                   'text_language':['french','english']
+                   }
+        return results
 
 
 class SentenceView(ListView):
