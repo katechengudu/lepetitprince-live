@@ -38,3 +38,27 @@ class Sentence(models.Model):
     finished = models.BooleanField(default=False)
     def __str__(self):
         return self.note
+
+class Lemma(models.Model):
+    text = models.CharField(max_length=100, null=True, blank=True, unique=True)
+    note = models.CharField(max_length=500,null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    priority = models.BooleanField(default=False)
+    finished = models.BooleanField(default=False)
+    def __str__(self):
+        return self.text
+
+
+class Token(models.Model):
+    source = models.ForeignKey(Sentence,on_delete=models.CASCADE)
+    text = models.CharField(max_length=100, null=True, blank=True)
+    pos = models.CharField(max_length=100, null=True, blank=True)
+    tag = models.CharField(max_length=100, null=True, blank=True)
+    dep = models.CharField(max_length=100, null=True, blank=True)
+    token_lemma = models.ForeignKey(Lemma,on_delete=models.CASCADE)
+    note = models.CharField(max_length=500,null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    priority = models.BooleanField(default=False)
+    finished = models.BooleanField(default=False)
+    def __str__(self):
+        return self.text
