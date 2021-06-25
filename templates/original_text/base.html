@@ -29,10 +29,10 @@
 			              					<div class="form-field">
 				              					<div class="select-wrap">
                                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                      <select name="chapter_name" id="" class="form-control">
-                                                          <option value="all">ALL CHAPTERS</option>
-                                                          {% for chapter in results.chapter_titles %}
-                                                              <option value="{{ chapter.title_name }}" >{{ chapter.title_name }}</option>
+                                                      <select name="book_title" id="" class="form-control">
+                                                          <option value="all">ALL BOOKS</option>
+                                                          {% for book in results.all_books %}
+                                                              <option value="{{ book.title }}" >{{ book.title }}</option>
                                                           {% endfor %}
                                                       </select>
                                                  </div>
