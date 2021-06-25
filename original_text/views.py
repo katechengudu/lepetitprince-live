@@ -8,7 +8,6 @@ class BookView(ListView):
     template_name = 'original_text/home.html'
     context_object_name = 'results'
     model = Book
-
     def get_queryset(self):
         all_books=Book.objects.all()
         results = {'all_books': all_books,
