@@ -8,23 +8,20 @@
 
         {% for data in results.results_sentence %}
             <table class="table table-striped">
-                            <tbody>
-      <tr>
-        <td><li>{{ data.content }}</li></td>
-      </tr>
-      <tr>
-        <td><p>{{ data.translation_eng }}</p></td>
-      </tr>
-    </tbody>
-                        </table>
-            <p><div class="btn-group">
-                          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                          </button>
-                          <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Grammar</a></li>
-                          </ul>
-                        </div></p>
+                <tbody>
+                      <tr>
+                        <td><li>{{ data.content }}</li></td>
+                      </tr>
+                      <tr>
+                        <td><p>{{ data.translation_eng }}</p></td>
+                      </tr>
+                </tbody>
+            </table>
+            <p>
+                            <button type="button" class="btn btn-outline-success">Chunks</button>
+                            <button type="button" class="btn btn-outline-warning">Grammar</button>
+                            <button type="button" class="btn btn-outline-info">Practice</button>
+                        </p>
         {% endfor %}
 
     </ol>

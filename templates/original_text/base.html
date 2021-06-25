@@ -11,23 +11,38 @@
     <title>LE PETIT PRINCE</title>
   </head>
   <body>
-      <div class="col-md-12 tab-wrap">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FrenchPortal</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'original_text:book' %}">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <div class="col-md-12 tab-wrap">
         <div class="tab-content p-4" id="v-pills-tabContent">
-			              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-			              	<form action="{% url 'original_text:search' %}" class="search-job" method="get">
-			              		<div class="row">
-			              			<div class="col-md">
-			              				<div class="form-group">
-				              				<div class="form-field">
-				              					<div class="icon"><span class="icon-briefcase"></span></div>
-								                <input type="text" name='text_story' class="form-control" placeholder="eg. six ans">
-								              </div>
-							              </div>
-			              			</div>
+                          <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+                            <form action="{% url 'original_text:search' %}" class="search-job" method="get">
+                                <div class="row">
                                     <div class="col-md">
                                         <div class="form-group">
-			              					<div class="form-field">
-				              					<div class="select-wrap">
+                                            <div class="form-field">
+                                                <div class="icon"><span class="icon-briefcase"></span></div>
+                                                <input type="text" name='text_story' class="form-control" placeholder="eg. six ans">
+                                              </div>
+                                          </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <div class="form-field">
+                                                <div class="select-wrap">
                                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                                       <select name="book_title" id="" class="form-control">
                                                           <option value="all">ALL BOOKS</option>
@@ -36,13 +51,13 @@
                                                           {% endfor %}
                                                       </select>
                                                  </div>
-								               </div>
-							               </div>
-			              			 </div>
+                                               </div>
+                                           </div>
+                                     </div>
                                     <div class="col-md">
-			              				<div class="form-group">
+                                        <div class="form-group">
                                             <div class="form-field">
-				              					<div class="select-wrap">
+                                                <div class="select-wrap">
                                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                                       <select name="text_language" id="" class="form-control">
                                                           {% for language in results.text_language %}
@@ -51,23 +66,23 @@
                                                           }
                                                       </select>
                                                  </div>
-								               </div>
-							              </div>
-			              			</div>
-			              			<div class="col-md">
-			              				<div class="form-group">
-			              					<div class="form-field">
-								                <input type="submit" value="Search in Story" class="form-control btn btn-primary">
-								              </div>
+                                               </div>
+                                          </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <div class="form-field">
+                                                <input type="submit" value="Search in Story" class="form-control btn btn-primary">
+                                              </div>
                                         </div>
-			              			</div>
-			              		</div>
-			              	</form>
-			              </div>
-			            </div>
-      </div>
-      {% block body %}
-      {% endblock %}
+                                    </div>
+                                </div>
+                            </form>
+                          </div>
+                        </div>
+        </div>
+        {% block body %}
+        {% endblock %}
   </body>
 
     <!-- Optional JavaScript; choose one of the two! -->
