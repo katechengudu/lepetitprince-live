@@ -6,6 +6,14 @@ from import_export.widgets import ForeignKeyWidget
 
 # Register your models here.
 
+class BookAdmin(ImportExportModelAdmin):
+    list_display = ['title','author','pk','note']
+    list_display_links = ['title','author']
+    search_fields = ['title']
+    class Meta:
+        model = Book
+
+
 class ChapterAdmin(ImportExportModelAdmin):
     list_display = ['title_name','title_number','pk','note']
     list_display_links = ['title_name']
@@ -13,36 +21,11 @@ class ChapterAdmin(ImportExportModelAdmin):
     class Meta:
         model = Chapter
 
-
-
-class ParagraphResource(resources.ModelResource):
-    chapter_title = fields.Field(
-        column_name='chapter_title',
-        attribute='chapter_title',
-        widget=ForeignKeyWidget(Chapter, 'title_name'))
-    class Meta:
-        model = Paragraph
-
-class ParagraphAdmin(ImportExportModelAdmin):
-    list_display = ['pk','content','priority','chapter_title','translation_eng']
-    list_display_links = ['content','chapter_title']
-    search_fields = ['pk','content']
-    list_filter = ['note','priority']
-    resource_class = ParagraphResource
-    class Meta:
-        model = Paragraph
-
-
 class SentenceResource(resources.ModelResource):
     chapter_title = fields.Field(
         column_name='chapter_title',
         attribute='chapter_title',
         widget=ForeignKeyWidget(Chapter, 'title_name'))
-
-    paragraph_title = fields.Field(
-        column_name='paragraph_title',
-        attribute='paragraph_title',
-        widget=ForeignKeyWidget(Paragraph, 'content'))
     class Meta:
         model = Sentence
 
@@ -52,14 +35,12 @@ class SentenceAdmin(ImportExportModelAdmin):
     search_fields = ['pk','content']
     list_filter = ['note','priority']
     resource_class = SentenceResource
-
     class Meta:
         model = Sentence
 
 
-
+admin.site.register(Book,BookAdmin)
 admin.site.register(Chapter,ChapterAdmin)
-admin.site.register(Paragraph,ParagraphAdmin)
 admin.site.register(Sentence,SentenceAdmin)
 
 
