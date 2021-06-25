@@ -2,7 +2,6 @@
 
 {% block body %}
     <table class="table table-hover">
-        {% for book in results.all_books %}
             <thead>
                 <tr>
                   <th scope="col">Book</th>
@@ -11,13 +10,14 @@
                 </tr>
             </thead>
             <tbody>
+            {% for book in results.all_books %}
                 <tr>
                 <td><a href="{% url 'original_text:sentence' pk=book.pk %}">{{ book.title }}</a></td>
                 <td>{{ book.author }}</td>
                 <td><span class="badge bg-light text-dark">1st</span></td>
                 </tr>
+            {% endfor %}
             </tbody>
-        {% endfor %}
     </table>
 
 {% endblock %}
