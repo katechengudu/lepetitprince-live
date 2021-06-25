@@ -14,10 +14,19 @@ class BookAdmin(ImportExportModelAdmin):
         model = Book
 
 
+class ChapterResource(resources.ModelResource):
+    book_title = fields.Field(
+        column_name='book_title',
+        attribute='book_title',
+        widget=ForeignKeyWidget(Book, 'title'))
+    class Meta:
+        model = Chapter
+
 class ChapterAdmin(ImportExportModelAdmin):
     list_display = ['title_name','title_number','pk','note']
     list_display_links = ['title_name']
     search_fields = ['title_name']
+    resource_class = ChapterResource
     class Meta:
         model = Chapter
 

@@ -11,7 +11,7 @@ class Book(models.Model):
     finished = models.BooleanField(default=False)
 
 class Chapter(models.Model):
-    book_title = models.ForeignKey(Book,on_delete=models.CASCADE,default=1)
+    book_title = models.ForeignKey(Book,on_delete=models.CASCADE)
     number = models.IntegerField(null=True, blank=True)
     title_name = models.CharField(max_length=300,null=True, blank=True)
     title_number = models.IntegerField(null=True, blank=True)

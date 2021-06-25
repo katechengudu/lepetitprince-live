@@ -1,0 +1,50 @@
+{% extends "original_text/base.html" %}
+
+{% block body %}
+
+
+<h4>{{ results.book_title }}   <span class="badge bg-light text-dark">Free</span></h4>
+<div class="accordion" id="accordionExample">
+    {% for chapter in results.chapter_titles %}
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ chapter.title_number }}" aria-expanded="true" aria-controls="collapseOne">
+                {{ chapter.title_name }}
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapse{{ chapter.title_number }}" class="collapse in" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+              <ol>
+                {% for data in results.datas %}
+                    {% if data.chapter_title.title_name == chapter.title_name %}
+                        <table class="table table-striped">
+                            <tbody>
+                              <tr>
+                                <td><li>{{ data.content }}</li></td>
+                              </tr>
+                              <tr>
+                                <td><p>{{ data.translation_eng }}</p></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <p><div class="btn-group">
+                          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                          </button>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Grammar</a></li>
+                          </ul>
+                        </div></p>
+                    {% endif %}
+                {% endfor %}
+              </ol>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
