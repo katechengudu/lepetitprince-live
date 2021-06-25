@@ -10,6 +10,13 @@ class BookView(ListView):
     model = Book
     ordering = ['pk']
 
+    def get_context_data(self,*args,**kwargs):
+        context = super().get_context_data(*args,**kwargs)
+        context['all_books'] = Book.objects.all()
+        context['text_language'] = ['french','english']
+        return context
+
+
 
 class SentenceView(ListView):
     template_name = 'original_text/book.html'
@@ -38,7 +45,7 @@ class SearchView(ListView):
 
     @csrf_exempt
     def get_queryset(self,*args,**kwargs):
-        q1 = self.request.GET.get("text_story")
+        q1 = self.request.GET.get("text_book")
         q2 = self.request.GET.get("book_title")
         q3 = self.request.GET.get("text_language")
         chapter_titles = Chapter.objects.filter(book_title__id=self.kwargs.get('pk'))
