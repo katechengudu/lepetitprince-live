@@ -12,7 +12,6 @@ class Book(models.Model):
 
 class Chapter(models.Model):
     book_title = models.ForeignKey(Book,on_delete=models.CASCADE)
-    number = models.IntegerField(null=True, blank=True)
     title_name = models.CharField(max_length=300,null=True, blank=True)
     title_number = models.IntegerField(null=True, blank=True)
     translation_eng = models.TextField(null=True,blank=True)
@@ -26,12 +25,13 @@ class Chapter(models.Model):
 
 
 class Sentence(models.Model):
-    chapter_title = models.ForeignKey(Chapter,on_delete=models.CASCADE)
+    chapter_id = models.ForeignKey(Chapter,on_delete=models.CASCADE)
     number = models.IntegerField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
     content_lower_case = models.TextField(null=True, blank=True)
     translation_eng = models.TextField(null=True,blank=True)
     translation_chi = models.TextField(null=True, blank=True)
+    token_total_french = models.IntegerField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     note = models.CharField(max_length=500,default='none')
     priority = models.BooleanField(default=False)
@@ -50,7 +50,7 @@ class Lemma(models.Model):
 
 
 class Token(models.Model):
-    source = models.ForeignKey(Sentence,on_delete=models.CASCADE)
+    sentence_id = models.ForeignKey(Sentence,on_delete=models.CASCADE)
     text = models.CharField(max_length=100, null=True, blank=True)
     pos = models.CharField(max_length=100, null=True, blank=True)
     tag = models.CharField(max_length=100, null=True, blank=True)

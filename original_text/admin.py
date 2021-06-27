@@ -31,10 +31,10 @@ class ChapterAdmin(ImportExportModelAdmin):
         model = Chapter
 
 class SentenceResource(resources.ModelResource):
-    chapter_title = fields.Field(
-        column_name='chapter_title',
-        attribute='chapter_title',
-        widget=ForeignKeyWidget(Chapter, 'title_name'))
+    chapter_id = fields.Field(
+        column_name='chapter_id',
+        attribute='chapter_id',
+        widget=ForeignKeyWidget(Chapter, 'pk'))
     class Meta:
         model = Sentence
 
@@ -58,10 +58,10 @@ class LemmaAdmin(ImportExportModelAdmin):
 
 
 class TokenResource(resources.ModelResource):
-    source = fields.Field(
-        column_name='source',
-        attribute='source',
-        widget=ForeignKeyWidget(Sentence, 'content'))
+    sentence_id = fields.Field(
+        column_name='sentence_id',
+        attribute='sentence_id',
+        widget=ForeignKeyWidget(Sentence, 'pk'))
     token_lemma = fields.Field(
         column_name='token_lemma',
         attribute='token_lemma',
@@ -70,7 +70,7 @@ class TokenResource(resources.ModelResource):
         model = Token
 
 class TokenAdmin(ImportExportModelAdmin):
-    list_display = ['pk','text','pos','note']
+    list_display = ['pk','text','pos','tag','dep','note']
     list_display_links = ['text']
     search_fields = ['pk','text']
     list_filter = ['note','priority']
