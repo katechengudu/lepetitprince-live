@@ -24,7 +24,7 @@ class SentenceView(ListView):
 
     def get_queryset(self,*args,**kwargs):
         book_title = Book.objects.get(id=self.kwargs.get('pk')).title
-        datas = Sentence.objects.filter(chapter_title__book_title__id=self.kwargs.get('pk'))
+        datas = Sentence.objects.filter(chapter_id__book_title__id=self.kwargs.get('pk'))
         chapter_titles=Chapter.objects.filter(book_title__id=self.kwargs.get('pk'))
         all_books=Book.objects.all()
         results = {'book_title':book_title,
