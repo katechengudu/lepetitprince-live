@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .NOUN {
+        color: black;
+    }
+        .DET {
+        color: hotpink;
+    }
+        .ADJ {
+        color: grey;
+    }
+        .VERB {
+        color: darkred;
+    }
+        .PUNCT {
+        color: black;
+    }
+
+        .ADV {
+        color: dodgerblue;
+    }
+
+        .PRON{
+        color: slategray;
+    }
+
+        .SCONJ{
+        color: orangered;
+    }
+
+        .AUX{
+        color: red;
+    }
+
+        .ADP {
+        color: sandybrown;
+    }
+
+        .CCONJ {
+        color: orangered;
+    }
+
+        .PROPN {
+        color: slategrey;
+    }
+
+        .PART {
+        color: coral;
+    }
+
+        .NUM {
+        color: dimgray;
+    }
+
+        .INTJ {
+        color: yellowgreen;
+    }
+
+        .X {
+        color: rebeccapurple;
+    }
+
+    </style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 {% for item in results.tokens %}
-    {{ item.text}}
-    {{ item.pos}}
-    {{ item.token_lemma }}
+    <span class="{{item.pos}}" name="text">{{ item.text}}</span>
+{% endfor %}
+<br>
+{% for item in results.tokens %}
+    <span class="{{item.pos}}" name="lemma">{{ item.pos}}</span>
 {% endfor %}
 </body>
 </html>
