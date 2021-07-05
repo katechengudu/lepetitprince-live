@@ -38,6 +38,28 @@ class SentenceView(ListView):
         return results
 
 
+class Sentence_GrammarView(ListView):
+    template_name = 'original_text/sentence_grammar.html'
+    context_object_name = 'results'
+    model = Token
+    ordering = ['pk']
+    def get_queryset(self,*args,**kwargs):
+        print(self.kwargs.get('pk'))
+        tokens = Token.objects.filter(sentence_id=self.kwargs.get('pk'))
+        print(len(tokens))
+        results = {'tokens':tokens
+                   }
+        return results
+
+
+
+
+
+
+
+
+
+
 class SearchView(ListView):
     template_name = 'original_text/search.html'
     model = Sentence
