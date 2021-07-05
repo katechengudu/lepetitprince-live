@@ -81,8 +81,16 @@
                         </div>
         </div>
         {% block body %}
+
         {% endblock %}
   </body>
+
+    <script>
+        function myFunction(a) {
+            console.log(a.name)
+            a.parentElement.nextElementSibling.innerHTML="HELLO"
+        }
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

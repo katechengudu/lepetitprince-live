@@ -27,8 +27,10 @@ class SentenceView(ListView):
         datas = Sentence.objects.filter(chapter_id__book_title__id=self.kwargs.get('pk'))
         chapter_titles=Chapter.objects.filter(book_title__id=self.kwargs.get('pk'))
         all_books=Book.objects.all()
+        all_tokens = Token.objects.filter(book_id=self.kwargs.get('pk'))
         results = {'book_title':book_title,
                     'datas':datas,
+                   'all_tokens':all_tokens,
                     'chapter_titles': chapter_titles,
                     'all_books': all_books,
                     'text_language':['french','english']

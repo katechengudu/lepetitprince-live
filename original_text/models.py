@@ -25,6 +25,7 @@ class Chapter(models.Model):
 
 
 class Sentence(models.Model):
+    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
     chapter_id = models.ForeignKey(Chapter,on_delete=models.CASCADE)
     number = models.IntegerField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
@@ -51,6 +52,7 @@ class Lemma(models.Model):
 
 
 class Token(models.Model):
+    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
     chapter_id = models.ForeignKey(Chapter, on_delete=models.CASCADE)
     sentence_id = models.ForeignKey(Sentence,on_delete=models.CASCADE)
     sentence_number = models.IntegerField(null=True, blank=True)
