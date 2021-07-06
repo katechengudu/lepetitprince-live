@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rawdata',
     'original_text',
     'users',
+
+    'vocabulary_book',
 ]
 
 MIDDLEWARE = [

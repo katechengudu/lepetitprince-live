@@ -1,0 +1,11 @@
+{% extends "original_text/base.html" %}
+
+{% block body %}
+
+    {% for word in results %}
+        <li>{{ word.token_id.text }}</li>
+    {% empty %}
+        <h2 style="color: slategrey">None</h2>
+    {% endfor %}
+
+{% endblock %}
