@@ -2,77 +2,99 @@
 <html lang="en">
 <head>
     <style>
-        .NOUN {
-        color: black;
-    }
-        .DET {
-        color: hotpink;
-    }
-        .ADJ {
-        color: grey;
-    }
-        .VERB {
-        color: darkred;
-    }
-        .PUNCT {
+        [word_selected]:hover{
+        background-color: aqua;
+        cursor:pointer
+        }
+
+        [word_pos='NOUN']{
         color: black;
     }
 
-        .ADV {
+        [word_pos='DET']{
+        color: hotpink;
+    }
+        [word_pos='ADJ'] {
+        color: grey;
+    }
+        [word_pos='VERB'] {
+        color: darkred;
+    }
+        [word_pos='PUNCT'] {
+        color: black;
+    }
+
+        [word_pos='ADV'] {
         color: dodgerblue;
     }
 
-        .PRON{
+        [word_pos='PRON']{
         color: slategray;
     }
 
-        .SCONJ{
+        [word_pos='SCONJ']{
         color: orangered;
     }
 
-        .AUX{
+        [word_pos='AUX']{
         color: red;
     }
 
-        .ADP {
+        [word_pos='ADP'] {
         color: sandybrown;
     }
 
-        .CCONJ {
+        [word_pos='CCONJ'] {
         color: orangered;
     }
 
-        .PROPN {
+        [word_pos='PPRON'] {
         color: slategrey;
     }
 
-        .PART {
+        [word_pos='PART'] {
         color: coral;
     }
 
-        .NUM {
+        [word_pos='NUM'] {
         color: dimgray;
     }
 
-        .INTJ {
+        [word_pos='INTJ'] {
         color: yellowgreen;
     }
 
-        .X {
+        [word_pos='X'] {
         color: rebeccapurple;
     }
 
     </style>
+
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-{% for item in results.tokens %}
-    <span class="{{item.pos}}" name="text">{{ item.text}}</span>
+{% for token in results.tokens %}
+    <span word_pos="{{ token.pos }}" word_selected="" token_pk="{{ token.pk }}" onclick="myFunction(this)">{{ token.text}}</span>
 {% endfor %}
 <br>
-{% for item in results.tokens %}
-    <span class="{{item.pos}}" name="lemma">{{ item.pos}}</span>
+{% for token in results.tokens %}
+    <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{ token.pos}}</span>
+{% endfor %}
+<br>
+{% for token in results.tokens %}
+    <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{ token.token_lemma}}</span>
 {% endfor %}
 </body>
+
+<script>
+    function myFunction(a) {
+        var note=prompt("Add my notes:"," ");
+        console.log(a.getAttribute("token_pk"))
+        console.log(note)
+    }
+</script>
+
 </html>
+
+
