@@ -1,0 +1,42 @@
+{% extends "original_text/base.html" %}
+
+{% block body %}
+
+
+
+<h2 style="text-align: center">Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {% if form.errors %}
+        <div id="errors">
+            <div class="inner">
+                <p style="color: red">Please correct the errors.</p>
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            <li>{{ field.label }}:{{ field.errors | striptags}}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Username</label>
+      <input type="text" name="username"  class="form-control" placeholder="david">
+    </div>
+    <div class="mb-3">
+      <label for="id_password1"  class="form-label">Password</label>
+      <input type="password" name="password1" class="form-control" placeholder="epic123@321">
+    </div>
+    <div class="mb-3">
+      <label for="id_password2"  class="form-label">Confirm password</label>
+      <input type="password" name="password2"  class="form-control" placeholder="epic123@321">
+    </div>
+    <input type="submit" class="btn btn-outline-primary" style="float:right;margin-top:30px" value="Register">
+</form>
+
+
+
+{% endblock %}

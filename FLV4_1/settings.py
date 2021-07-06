@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     'rawdata',
     'original_text',
+    'users',
 ]
 
 MIDDLEWARE = [

@@ -2,6 +2,7 @@
 
 {% block body %}
 <div class="col-md-12 tab-wrap">
+    {%include 'original_text/general_search_bar.html'%}
     <p>SEARCH CONDITIONS --- TEXT: {{ results.q1 }} --- FROM: {{ results.q2 }} --- IN LANGUAGE: {{ results.q3 }}</p>
     <p>SEARCH RESULTS TOTAL COUNT --- {{ results.total_results_sentence }}</p>
     <ol>
@@ -19,7 +20,7 @@
             </table>
             <p>
                 <button type="button" class="btn btn-outline-success">Chunks</button>
-                <button type="button" class="btn btn-outline-warning">Grammar</button>
+                <button type="button" class="btn btn-outline-warning" name="{{ data.pk }}" onclick="myFunction(this)">Grammar</button>
                 <button type="button" class="btn btn-outline-info">Practice</button>
             </p>
         {% endfor %}
