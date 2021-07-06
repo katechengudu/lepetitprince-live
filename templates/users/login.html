@@ -1,0 +1,28 @@
+{% extends "original_text/base.html" %}
+
+{% block body %}
+
+
+{% if user.is_authenticated %}
+    <h2 style="color: red">You have already logged in.</h2>
+{% else %}
+<h2 style="text-align: center">Login</h2>
+<form method="post">
+    {% csrf_token %}
+
+    {%include 'users/user_form_errors.html'%}
+
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Username</label>
+      <input type="text" name="username"  class="form-control" placeholder="david">
+    </div>
+    <div class="mb-3">
+      <label for="id_password"  class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" placeholder="epic123@321">
+    </div>
+    <input type="submit" class="btn btn-outline-primary" style="float:right;margin-top:30px" value="Login">
+</form>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% if form.errors %}
+    <div id="errors">
+        <div class="inner">
+            <p style="color: red">Please correct the errors.</p>
+            <ul>
+                {% for field in form %}
+                    {% if field.errors %}
+                        <li>{{ field.label }}:{{ field.errors | striptags}}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
