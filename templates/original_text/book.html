@@ -2,6 +2,7 @@
 
 {% block body %}
 
+{%include 'original_text/general_search_bar.html'%}
 
 <h4>{{ results.book_title }}   <span class="badge bg-light text-dark">First</span></h4>
 <div class="accordion" id="accordionExample">
@@ -30,12 +31,7 @@
                               </tr>
                             </tbody>
                         </table>
-                        <p>
-                            <button type="button" class="btn btn-outline-success">Chunks</button>
-                            <button type="button" class="btn btn-outline-warning" name="{{ data.pk }}" onclick="myFunction(this)">Grammar</button>
-                            <button type="button" class="btn btn-outline-info">Practice</button>
-                            <br>
-                        </p>
+                    {%include 'original_text/click_buttons.html'%}
                     {% endif %}
                 {% endfor %}
               </ol>
