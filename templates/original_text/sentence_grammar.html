@@ -3,7 +3,7 @@
 <head>
     <style>
         [word_selected]:hover{
-        background-color: aqua;
+        background-color: mediumpurple;
         cursor:pointer
         }
 
@@ -74,17 +74,21 @@
     <title>Title</title>
 </head>
 <body>
+<p>
 {% for token in results.tokens %}
     <span word_pos="{{ token.pos }}" word_selected="" token_pk="{{ token.pk }}" onclick="myFunction(this)">{{ token.text}}</span>
 {% endfor %}
-<br>
+</p>
+<p>
 {% for token in results.tokens %}
     <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{ token.pos}}</span>
 {% endfor %}
-<br>
+</p>
+<p>
 {% for token in results.tokens %}
     <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{ token.token_lemma}}</span>
 {% endfor %}
+</p>
 </body>
 
 <script>
