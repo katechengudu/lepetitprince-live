@@ -76,17 +76,17 @@
 <body>
 <p>
 {% for token in results.tokens %}
-    <span word_pos="{{ token.pos }}" word_selected="" token_pk="{{ token.pk }}" onclick="myFunction(this)">{{ token.text}}</span>
+    <span word_pos="{{ token.pos }}" word_selected="" token_pk="{{ token.pk }}" onclick="myFunction(this)">{{token.text}}</span>
 {% endfor %}
 </p>
 <p>
 {% for token in results.tokens %}
-    <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{ token.pos}}</span>
+    <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{token.pos}}</span>
 {% endfor %}
 </p>
 <p>
 {% for token in results.tokens %}
-    <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{ token.token_lemma}}</span>
+    <span word_pos="{{ token.pos }}" token_pk="{{ token.pk }}">{{token.token_lemma}}</span>
 {% endfor %}
 </p>
 </body>
