@@ -100,7 +100,7 @@ class SearchView(ListView):
                            }
                 return results
             elif q3 == 'french':
-                results_sentence = Sentence.objects.filter(chapter_title__book_title__title=q2).filter(content__icontains=q1).order_by('id')
+                results_sentence = Sentence.objects.filter(chapter_id__book_title__title=q2).filter(content__icontains=q1).order_by('id')
                 total_results_sentence = len(results_sentence)
                 results = {'results_sentence': results_sentence,
                            'total_results_sentence':total_results_sentence,
@@ -113,7 +113,7 @@ class SearchView(ListView):
                            }
                 return results
             elif q3 == 'english':
-                results_sentence = Sentence.objects.filter(chapter_title__book_title__title=q2).filter(translation_eng__icontains=q1).order_by('id')
+                results_sentence = Sentence.objects.filter(chapter_id__book_title__title=q2).filter(translation_eng__icontains=q1).order_by('id')
                 total_results_sentence = len(results_sentence)
                 results = {'results_sentence': results_sentence,
                            'total_results_sentence':total_results_sentence,
