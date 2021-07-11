@@ -34,7 +34,11 @@ class SentenceResource(resources.ModelResource):
     chapter_id = fields.Field(
         column_name='chapter_id',
         attribute='chapter_id',
-        widget=ForeignKeyWidget(Chapter, 'pk'))
+        widget=ForeignKeyWidget(Chapter, 'title_name'))
+    book_id = fields.Field(
+        column_name='book_id',
+        attribute='book_id',
+        widget=ForeignKeyWidget(Book, 'title'))
     class Meta:
         model = Sentence
 

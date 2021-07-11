@@ -11,7 +11,7 @@ class Source(models.Model):
         return self.title
 
 class Rawdata(models.Model):
-    source_title = models.ForeignKey(Source,on_delete=models.CASCADE)
+    source_title = models.ForeignKey(Source,on_delete=models.CASCADE,null=True, blank=True)
     book_id = models.IntegerField(null=True, blank=True)
     chapter_id = models.IntegerField(null=True, blank=True)
     sentence_id = models.IntegerField(null=True, blank=True)
@@ -30,7 +30,7 @@ class Rawdata(models.Model):
 
 
 class NLP_token_Rawdata(models.Model):
-    source_sentence = models.ForeignKey(Rawdata,on_delete=models.CASCADE)
+    source_sentence = models.ForeignKey(Rawdata,on_delete=models.CASCADE,null=True, blank=True)
     book_id = models.IntegerField(null=True, blank=True)
     chapter_id = models.IntegerField(null=True, blank=True)
     sentence_id = models.IntegerField(null=True, blank=True)
@@ -51,11 +51,4 @@ class NLP_token_Rawdata(models.Model):
         return self.nlp_text
 
 
-class Lemma(models.Model):
-    text = models.CharField(max_length=100, null=True, blank=True, unique=True)
-    note = models.CharField(max_length=500,null=True, blank=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    priority = models.BooleanField(default=False)
-    finished = models.BooleanField(default=False)
-    def __str__(self):
-        return self.text
+

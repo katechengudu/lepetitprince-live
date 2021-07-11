@@ -32,16 +32,10 @@ class NLP_token_RawdataAdmin(ImportExportModelAdmin):
         model = NLP_token_Rawdata
 
 
-class LemmaAdmin(ImportExportModelAdmin):
-    list_display = ['pk','text']
-    list_display_links = ['text']
-    search_fields = ['pk','text']
-    list_filter = ['note','priority']
-    class Meta:
-        model = Lemma
+
 
 
 admin.site.register(Source,SourceAdmin)
 admin.site.register(Rawdata,RawdataAdmin)
 admin.site.register(NLP_token_Rawdata,NLP_token_RawdataAdmin)
-admin.site.register(Lemma,LemmaAdmin)
+
